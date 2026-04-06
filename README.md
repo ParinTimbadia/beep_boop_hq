@@ -3,6 +3,7 @@ beep boop
 
 ## to add sounds
 put sounds in sounds/ 
+
 add path to array in index.html 
 
 ## to run 
