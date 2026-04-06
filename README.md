@@ -4,7 +4,7 @@ beep boop
 ## to add sounds
 put sounds in sounds/ 
 
-add path to array in index.html 
+add path to list in sounds/list.json
 
 ## to run 
 run python -m http.server 8000
