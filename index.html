@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beep boop soundboard</title>
+</head>
+<body>
+    <h1 style="font-size:96px; margin:0;"><b>beep boop</b></h1>
+    <div id="soundButtons" style="margin-top:24px;"></div>
+
+    <!-- Audio files are detected automatically from the `sounds/` folder.
+         You can provide a `sounds/list.json` manifest or enable directory
+         listing on your static server (python -m http.server shows a listing).
+    -->
+
+    <script>
+        // Default sounds (used as fallback if no manifest is provided)
+        const defaultSounds = [
+            { name: 'Taco Bell', src: 'sounds/taco_bell.mp3' },
+            { name: 'FAHHHH', src: 'sounds/fahhh.mp3' }
+        ];
+
+        // Current sound list (will be replaced by manifest if present)
+        let soundFiles = defaultSounds.slice();
+
+        // Render buttons for entries in `soundFiles`.
+        function renderButtons() {
+            const container = document.getElementById('soundButtons');
+            container.innerHTML = '';
+            soundFiles.forEach(s => {
+                const b = document.createElement('button');
+                b.textContent = s.name || s.file || s.src || 'sound';
+                b.style.cssText = 'font-size:32px; color:blue; background:white; border:2px solid blue; padding:12px 20px; margin:8px; cursor:pointer;';
+                b.addEventListener('click', () => playSound(s.src || ('sounds/' + (s.file || s.name))));
+                container.appendChild(b);
+            });
+        }
+
+        // Play a single sound src (relative or absolute)
+        function playSound(src) {
+            const audio = new Audio(src);
+            audio.play().catch(err => {
+                console.error('Audio play failed for', src, err);
+                playGeneratedBeep();
+            });
+        }
+
+        // Initial render using defaults while we try to load the manifest
+        renderButtons();
+
+        // Load manifest from `sounds/list.json` if present. Accepts either:
+        //  - [{"name":"Label","file":"filename.mp3"}, ...]
+        //  - [{"name":"Label","src":"/full/or/relative/path.mp3"}, ...]
+        (async function loadManifest() {
+            try {
+                const resp = await fetch('sounds/list.json');
+                if (!resp.ok) throw new Error('manifest not found');
+                const list = await resp.json();
+                if (!Array.isArray(list) || list.length === 0) throw new Error('invalid manifest');
+                soundFiles = list.map(item => {
+                    if (typeof item === 'string') return { name: item, src: 'sounds/' + item };
+                    const file = item.file || item.src || item.path || item.name;
+                    const src = (file && (file.startsWith('http') || file.startsWith('/'))) ? file : ('sounds/' + file);
+                    return { name: item.name || file, src };
+                });
+                console.log('Loaded sounds from sounds/list.json:', soundFiles);
+                renderButtons();
+            } catch (e) {
+                console.warn('Could not load sounds/list.json — using defaults', e);
+            }
+        })();
+
+        // Small generated beep fallback using Web Audio API
+        function playGeneratedBeep() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const o = ctx.createOscillator();
+                const g = ctx.createGain();
+                o.type = 'sine';
+                o.frequency.value = Math.random() * 800 + 300;
+                g.gain.setValueAtTime(0.1, ctx.currentTime);
+                o.connect(g); g.connect(ctx.destination);
+                o.start();
+                o.stop(ctx.currentTime + (Math.random() * 0.3 + 0.05));
+            } catch (e) {
+                console.error('Web Audio failed:', e);
+            }
+        }
+    </script>
+</body>
+</html>
