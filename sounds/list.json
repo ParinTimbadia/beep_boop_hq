@@ -8,5 +8,8 @@
   { "name": "snore", "file": "snore.mp3" },
   { "name": "67", "file": "67.mp3" },
   { "name": "pipe", "file": "pipe.mp3" },
-  { "name": "le poisson steve", "file": "steve-le-poisson.mp3" }
+  { "name": "le poisson steve", "file": "steve-le-poisson.mp3" },
+  { "name": "r2d2", "file": "r2-unit-scream.mp3" },
+  { "name": "beep boop", "file": "beep-boop.mp3" },
+  { "name": "discord", "file": "discord-notfication.mp3" }
 ]
