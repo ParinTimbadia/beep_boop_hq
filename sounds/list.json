@@ -14,5 +14,7 @@
   { "name": "discord", "file": "discord-notification.mp3" },
   { "name": "yippeee", "file": "yippeeeeeeeeeeeeee.mp3" },
   { "name": "run", "file": "run.mp3" },
-  { "name": "bonk", "file": "bonk.mp3" }
+  { "name": "bonk", "file": "bonk.mp3" },
+  { "name": "whistle", "file": "whistle.mp3" }
+
 ]
