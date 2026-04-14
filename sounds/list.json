@@ -16,5 +16,6 @@
   { "name": "run", "file": "run.mp3" },
   { "name": "bonk", "file": "bonk.mp3" },
   { "name": "whistle", "file": "whistle.mp3" },
-  { "name": "amogus", "file": "amogus.mp3" }
+  { "name": "amogus", "file": "amogus.mp3" },
+  { "name": "amogus", "file": "deltarune-explosion.mp3" }
 ]
