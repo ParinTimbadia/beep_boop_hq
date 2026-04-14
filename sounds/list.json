@@ -17,5 +17,5 @@
   { "name": "bonk", "file": "bonk.mp3" },
   { "name": "whistle", "file": "whistle.mp3" },
   { "name": "amogus", "file": "amogus.mp3" },
-  { "name": "amogus", "file": "deltarune-explosion.mp3" }
+  { "name": "explode", "file": "deltarune-explosion.mp3" }
 ]
