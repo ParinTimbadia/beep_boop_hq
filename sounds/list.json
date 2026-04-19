@@ -22,5 +22,7 @@
   { "name": "meow meow", "file": "meow.mp3" },
   { "name": "trombone", "file": "trombone.mp3" },
   { "name": "windows", "file": "windows.mp3" },
-  { "name": "to be continued", "file": "tobecontinued.mp3" }
+  { "name": "to be continued", "file": "tobecontinued.mp3" },
+  { "name": "ba dum tss", "file": "badumtss.mp3" },
+  { "name": "outro", "file": "outro.mp3" }
 ]
