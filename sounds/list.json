@@ -24,5 +24,7 @@
   { "name": "windows", "file": "windows.mp3" },
   { "name": "to be continued", "file": "tobecontinued.mp3" },
   { "name": "ba dum tss", "file": "badumtss.mp3" },
-  { "name": "outro", "file": "outro.mp3" }
+  { "name": "outro", "file": "outro.mp3" },
+  { "name": "outlook", "file": "outlook.mp3" },
+  { "name": "corporate", "file": "corporate.mp3" }
 ]
