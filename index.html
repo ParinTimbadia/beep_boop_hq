@@ -28,6 +28,20 @@
         function renderButtons() {
             const container = document.getElementById('soundButtons');
             container.innerHTML = '';
+            // Random button: plays a random sound from the current list
+            const randBtn = document.createElement('button');
+            randBtn.textContent = 'random';
+            randBtn.style.cssText = 'font-size:32px; color:purple; background:white; border:2px solid purple; padding:12px 20px; margin:8px; cursor:pointer;';
+            randBtn.addEventListener('click', () => {
+                if (!Array.isArray(soundFiles) || soundFiles.length === 0) {
+                    playGeneratedBeep();
+                    return;
+                }
+                const r = soundFiles[Math.floor(Math.random() * soundFiles.length)];
+                playSound(r.src || ('sounds/' + (r.file || r.name)));
+            });
+            container.appendChild(randBtn);
+
             soundFiles.forEach(s => {
                 const b = document.createElement('button');
                 b.textContent = s.name || s.file || s.src || 'sound';
