@@ -29,5 +29,6 @@
   { "name": "outlook", "file": "outlook.mp3" },
   { "name": "corporate", "file": "corporate.mp3" },
   { "name": "Curse of Instant Pain", "file": "51012.m4a" },
-  { "name": "we are charlie kirk", "file": "kirk.mp3" }
+  { "name": "we are charlie kirk", "file": "kirk.mp3" },
+  { "name": "gambling", "file": "lets-go-gambling.mp3" }
 ]
