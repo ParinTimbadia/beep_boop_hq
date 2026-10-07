@@ -30,5 +30,6 @@
   { "name": "corporate", "file": "corporate.mp3" },
   { "name": "Curse of Instant Pain", "file": "51012.m4a" },
   { "name": "we are charlie kirk", "file": "kirk.mp3" },
-  { "name": "gambling", "file": "lets-go-gambling.mp3" }
+  { "name": "gambling", "file": "lets-go-gambling.mp3" },
+  { "name": "cha-ching", "file": "cha-ching.mp3" }
 ]
